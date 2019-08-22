@@ -62,6 +62,12 @@ export class HeroesService {
     return heroes;
   }
 
+  deleteHeroe( id:string ){
+     return this.http.delete(`${ this.url }/heroes/${ id }.json`);
+      // .subscribe( resp => {
+      //   return this.getHeroes();
+      // })
+  }
 
 
 
