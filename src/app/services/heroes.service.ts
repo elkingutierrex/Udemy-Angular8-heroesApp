@@ -21,4 +21,23 @@ export class HeroesService {
         return heroe;
       }))
   }
+
+  actualizarHeroe( heroe : HeroeModel){
+
+    const heroeTemp = {
+      ...heroe  //trae todas las propiedades el obj heroe
+    }
+
+    delete heroeTemp.id;
+
+    return this.http.put(`${ this.url }/heroes/${ heroe.id }.json`, heroeTemp);
+
+  }
+
+  getHeroes(){
+    return this.http.get(`${ this.url }/heroes`)
+  }
+
+
+
 }
